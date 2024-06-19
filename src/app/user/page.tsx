@@ -1,7 +1,21 @@
-import { NextPage } from "next";
-import dynamic from "next/dynamic";
-const AdminApp = dynamic(() => import("@/components/AdminApp"), { ssr: false });
+import React from "react";
+import {Datagrid, EmailField, List, TextField} from "react-admin";
 
-const Home: NextPage = () => <AdminApp />;
+const UserList = () => {
+    return (
+        <List>
+            <Datagrid　bulkActionButtons={false}>
+                <TextField source="id"/>
+                <TextField source="name"/>
+                <EmailField
+                    sx={{ mt: 2, mb: 1, display: 'block' }}
+                    source="email"
+                />
+                <TextField source="phone"/>
+                <TextField source="website"/>
+            </Datagrid>
+        </List>
+    )
+}
 
-export default Home;
+export default UserList
